@@ -1,45 +1,18 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
+    <q-footer elevated>
+      <q-tabs
+        v-model="tab"
+        indicator-color="yellow"
+        class="bg-primary text-white shadow-2"
+      >
+        <q-route-tab to="/Emergency" label="Emergência" />
+        <q-route-tab to="/Maps" label="Mapa" />
+        <q-route-tab to="/Health" label="Saúde" />
+        <q-route-tab to="/Profile" label="Perfil" />
+        <q-route-tab to="/Rewards" label="Recompensas" />
+      </q-tabs>
+    </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
