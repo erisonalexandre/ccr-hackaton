@@ -2,11 +2,11 @@
   <!-- <q-page class="flex flex-center">
     <img alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
   </q-page> -->
-  <h1>Index Page</h1>
+  <h1>Profile Page</h1>
 </template>
 
 <script>
 export default {
-  name: 'PageIndex'
+  name: 'PageProfile'
 }
 </script>

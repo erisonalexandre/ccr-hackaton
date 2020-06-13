@@ -1,12 +1,20 @@
-
 const routes = [
   {
-    path: '/',
+    path: '/tabs',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: 'Maps', component: () => import('pages/Maps.vue') },
+      { path: 'Emergency', component: () => import('pages/Emergency.vue') },
+      { path: 'Health', component: () => import('pages/Health.vue') },
+      { path: 'Profile', component: () => import('pages/Profile.vue') },
+      { path: 'Rewards', component: () => import('pages/Rewards.vue') }
     ]
-  }
+  },
+  {
+    path: '/login',
+    component: () => import('pages/Login.vue')
+  },
+  { path: '/index', component: () => import('pages/Index.vue') }
 ]
 
 // Always leave this as last one
