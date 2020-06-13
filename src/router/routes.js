@@ -3,19 +3,20 @@ const routes = [
     path: '/tabs',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: 'Maps', component: () => import('pages/Maps.vue') },
-      { path: 'Emergency', component: () => import('pages/Emergency.vue') },
-      { path: 'Health', component: () => import('pages/Health.vue') },
-      { path: 'Profile', component: () => import('pages/Profile.vue') },
-      { path: 'Rewards', component: () => import('pages/Rewards.vue') }
+      { name: 'Maps', path: 'Maps', component: () => import('pages/Maps.vue') },
+      { name: 'Emergency', path: 'Emergency', component: () => import('pages/Emergency.vue') },
+      { name: 'Health', path: 'Health', component: () => import('pages/Health.vue') },
+      { name: 'Profile', path: 'Profile', component: () => import('pages/Profile.vue') },
+      { name: 'Rewards', path: 'Rewards', component: () => import('pages/Rewards.vue') },
+      { path: '', redirect: 'Maps' }
     ]
   },
   {
     path: '/login',
-    component: () => import('pages/Login.vue'),
+    component: () => import('layouts/LoginLayout.vue'),
     children: [
-      { path: 'Signin', component: () => import('pages/Signin.vue') },
-      { path: 'Signup', component: () => import('pages/Signup.vue') }
+      { name: 'Signin', path: 'Signin', component: () => import('pages/Signin.vue') },
+      { name: 'Signup', path: 'Signup', component: () => import('pages/Signup.vue') }
     ]
   },
   { path: '/', component: () => import('pages/Index.vue') }
