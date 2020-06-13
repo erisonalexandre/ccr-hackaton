@@ -31,18 +31,24 @@ export default {
   },
   data () {
     return {
-      isLogged: true,
-      isLoading: true
+      isLoading: true,
+      isLogged: false,
+      userSession: 'oenfaeifu01923g89'
     }
   },
   created: function() {
-    console.log("PageIndex logged");
+    // timeout to represent the api to validate if application contains an user
+    // if has an user, and it's logged, navigate to 
     setTimeout(() => {
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 5000);
-      this.isLogged = !this.isLogged;
-    }, 2000);
+      // solve loading
+      this.isLoading = false;
+      this.isLogged = this.userSession === 'oenfaeifu01923g89';
+      if(this.isLogged) {
+        this.$router.push('tabs')
+      } else {
+        this.$router.push('login/Signup')
+      }
+    }, 3000);
   }
 }
 </script>
