@@ -1,9 +1,9 @@
 export default function () {
   return {
-    isLogged: false,
-    userSession: null,
+    isLogged: true,
+    userSession: '123ui12h3123',
     user: {
-      profilePicture: "https://www.pngkey.com/png/detail/121-1219231_user-default-profile.png",
+      profilePicture: "https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg",
       firstName: "João",
       lastName: "Bernardes",
       telephone: "+55929999999999",
@@ -29,6 +29,7 @@ export default function () {
           start: "novo hamburgo rs",
           destination: "cidade baixa, porto alegre rs",
           timeTraveled: "112:37:52",
+          kmTraveled: 60,
           name: "de novo hamburgo até cidade baixa",
           date: "2020/06/10"
         },
@@ -37,8 +38,18 @@ export default function () {
           start: "campo bom rs",
           destination: "florianopois sc",
           timeTraveled: "203:37:52",
-          name: "de novo hamburgo até cidade baixa",
-          date: "2020/06/10"
+          kmTraveled: 500,
+          name: "de campo bom até florianopolis",
+          date: "2020/06/09"
+        },
+        {
+          id: 3,
+          start: "campo bom rs",
+          destination: "florianopois sc",
+          timeTraveled: "10:37:52",
+          kmTraveled: 500,
+          name: "de campo bom até florianopolis",
+          date: "2020/06/08"
         }
       ]
     },
@@ -59,7 +70,7 @@ export default function () {
         description: "Tomei água"
       }
     ],
-    rankigs: {
+    rankings: {
       prize: "Corte de cabelo",
       points: 700,
       podium: [
