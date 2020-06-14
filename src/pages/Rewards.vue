@@ -8,12 +8,16 @@
 
     <hr />
 
+    <span>
+      Podium
+    </span>
+
     <div class="podium">
-      <div v-for="users in rankings.podium">
+      <div v-for="users in rankings.podium" v-bind:key="users.position">
         <div v-bind:class="[users.isUser ? 'user-winner' : 'user-podium']">
           <q-field class="user-position" outlined stack-label>
             <template v-slot:control>
-              <div class="self-center full-width no-outline">{{ users.position }}°</div>
+              <div class="self-center full-width no-outline">{{ users.position }}° lugar</div>
             </template>
           </q-field>
 
@@ -37,10 +41,11 @@
     <span>
       Minha colocação:
     </span>
+
     <div class="my-score">
       <q-field class="user-position" outlined stack-label>
         <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ rankings.position }}°</div>
+          <div class="self-center full-width no-outline">{{ rankings.position }}° lugar</div>
         </template>
       </q-field>
 
