@@ -23,8 +23,7 @@
           {{ user.birthday }}
         </span>
       </div>
-      <q-btn class="item" color="yellow" icon="thumb_up"/>
-      <q-btn class="item" color="yellow" icon="thumb_down"/>
+      <q-btn class="item text-black" color="yellow" icon="settings"/>
     </div>
   </div>
   <div class="body">
@@ -176,7 +175,7 @@ export default {
     align-items: center;
     min-height: 8vh;
     height: 60px;
-    padding: 0 8px;
+    padding: 0 24px;
   }
 
   .icon {
@@ -195,6 +194,6 @@ export default {
   .button-rotas {
     width: 120px;
     align-self: flex-end;
-    margin: 8px 8px 0 0;
+    margin: 8px 24px 0 0;
   }
 </style>
