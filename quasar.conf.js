@@ -90,7 +90,8 @@ module.exports = function (/* ctx */) {
       all: 'auto',
 
       components: [
-        'QIcon'
+        'QIcon',
+        'QBtn'
       ],
       directives: [],
 
