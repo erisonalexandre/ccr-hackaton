@@ -23,7 +23,8 @@
           {{ user.birthday }}
         </span>
       </div>
-      <q-btn class="item" color="yellow" label="Editar" />
+      <q-btn class="item" color="yellow" icon="thumb_up"/>
+      <q-btn class="item" color="yellow" icon="thumb_down"/>
     </div>
   </div>
   <div class="body">
@@ -90,7 +91,7 @@
 </template>
 
 <script>
-  import { addTimes } from "../services/addTime";
+import { addTimes } from '../services/addTime'
 export default {
   name: 'PageProfile',
   components: [
@@ -98,20 +99,20 @@ export default {
     'QIcon'
   ],
   beforeCreate () {
-    let { isLogged } = this.$store.state.application;    
+    const { isLogged } = this.$store.state.application
 
-    if(!isLogged) {
+    if (!isLogged) {
       this.$router.push({ name: 'BeginSession' })
     }
   },
   data () {
-    let { user, rankings } = this.$store.state.application
-    let { trips } = user
-    let kmTraveled = ('' + trips.reduce((value, trip) => value + trip.kmTraveled, 0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-    let arrTripsTimes = trips.map((t) => t.timeTraveled)
-    let allTimeTraveled = addTimes(arrTripsTimes).split(':')
-    let hours = allTimeTraveled[0]
-    let minutes = allTimeTraveled[1]
+    const { user, rankings } = this.$store.state.application
+    const { trips } = user
+    const kmTraveled = ('' + trips.reduce((value, trip) => value + trip.kmTraveled, 0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    const arrTripsTimes = trips.map((t) => t.timeTraveled)
+    const allTimeTraveled = addTimes(arrTripsTimes).split(':')
+    const hours = allTimeTraveled[0]
+    const minutes = allTimeTraveled[1]
 
     return {
       user,
