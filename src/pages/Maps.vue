@@ -16,11 +16,15 @@
       </div>
       <GmapAutocomplete
         placeholder="Para onde ?"
-        @place_changed="setPlace"
+        @place_changed="setSecondPlace"
         :options="{
           componentRestrictions: {country: 'br'}
         }">
       </GmapAutocomplete>
+      <div class="w-100" style="width: 90%; padding: 15px 0">
+        <p style="margin-bottom: 2px">Distancia: {{ directions ? directions.routes[0].legs[0].distance.text : '' }}</p>
+        <p>Duração estimada: {{ directions ? directions.routes[0].legs[0].duration.text : '' }}</p>
+      </div>
     </div>
     <GmapMap
       ref="mapRef"
@@ -36,7 +40,7 @@
         disableDefaultUi: false
       }"
       map-type-id="roadmap"
-      style="width: 100%; height: calc(100vh - 72px)"
+      style="width: 100%; height: calc(100vh - 45px)"
     >
     <template v-for="(m, index) in markers">
       <gmap-info-window :options="m.infoOptions" :position="m.position" :key="index + 'asd'">
@@ -92,40 +96,41 @@ export default {
       secondMarker: null,
       center: { lat: -3.0868934, lng: -60.0350299 },
       markers: [
-        {
-          position: {
-            lat: -3.07196,
-            lng: -60.04842
-          },
-          infoOptions: {
-            content:
-              'Avenida Desembargador João Machado, 4923 - Alvorada Manaus - AM',
-            // optional: offset infowindow so it visually sits nicely on top of our marker
-            pixelOffset: {
-              width: 0,
-              height: -35
-            }
-          }
-        },
-        {
-          position: {
-            lat: -3.107118,
-            lng: -60.017634
-          },
-          infoOptions: {
-            content: 'Rua Rio Tarauacá, 3 - Vieiralves Manaus - AM',
-            // optional: offset infowindow so it visually sits nicely on top of our marker
-            pixelOffset: {
-              width: 0,
-              height: -35
-            }
-          }
-        }
+        // {
+        //   position: {
+        //     lat: -3.07196,
+        //     lng: -60.04842
+        //   },
+        //   infoOptions: {
+        //     content:
+        //       'Avenida Desembargador João Machado, 4923 - Alvorada Manaus - AM',
+        //     // optional: offset infowindow so it visually sits nicely on top of our marker
+        //     pixelOffset: {
+        //       width: 0,
+        //       height: -35
+        //     }
+        //   }
+        // },
+        // {
+        //   position: {
+        //     lat: -3.107118,
+        //     lng: -60.017634
+        //   },
+        //   infoOptions: {
+        //     content: 'Rua Rio Tarauacá, 3 - Vieiralves Manaus - AM',
+        //     // optional: offset infowindow so it visually sits nicely on top of our marker
+        //     pixelOffset: {
+        //       width: 0,
+        //       height: -35
+        //     }
+        //   }
+        // }
       ],
       place: null,
       showPositionNow: false,
       currentPosition: null,
-      geoId: null
+      geoId: null,
+      directions: null
     }
   },
   components: {
@@ -143,29 +148,12 @@ export default {
     //   this.position = position
     // })
     this.getCurrentPosition()
-    this.$refs.mapRef.$mapPromise.then((map) => {
-      this.directionsService = new this.google.maps.DirectionsService()
-      this.directionsDisplay = new this.google.maps.DirectionsRenderer()
-      this.directionsDisplay.setMap(map)
-      var vm = this
-      vm.directionsService.route({
-        origin: this.currentPosition,
-        destination: { lat: -3.10713, lng: -60.01763 },
-        travelMode: 'DRIVING'
-      }, function (response, status) {
-        if (status === 'OK') {
-          vm.directionsDisplay.setDirections(response)
-        } else {
-          console.log('Directions request failed due to ' + status)
-        }
-      })
-    })
   },
   methods: {
     getCurrentPosition () {
       Geolocation.getCurrentPosition().then(position => {
         let { latitude, longitude } = position.coords
-        this.currentPosition = { lat: latitude, lng: longitude }
+        this.firstMarker = { lat: latitude, lng: longitude }
       })
     },
     searchPlace (event) {
@@ -184,8 +172,42 @@ export default {
     },
     setPlace (place) {
       this.place = place
+      let { lat, lng } = place.geometry.location
+      this.firstMarker = { lat: lat(), lng: lng() }
+      this.createDirections()
+    },
+    setSecondPlace (place) {
+      this.place = place
       let {lat, lng} = place.geometry.location
-      console.log(lat(), lng())
+      this.secondMarker = { lat: lat(), lng: lng() }
+      this.createDirections()
+    },
+    createDirections () {
+      if (this.firstMarker && this.secondMarker) {
+        this.$refs.mapRef.$mapPromise.then((map) => {
+          if (!this.directionsService) {
+            this.directionsService = new this.google.maps.DirectionsService()
+          }
+          if (!this.directionsDisplay) {
+            this.directionsDisplay = new this.google.maps.DirectionsRenderer()
+            this.directionsDisplay.setMap(map)
+          }
+          var vm = this
+          vm.directionsService.route({
+            origin: this.firstMarker,
+            destination: this.secondMarker,
+            travelMode: 'DRIVING'
+          }, function (response, status) {
+            if (status === 'OK') {
+              console.log(response)
+              vm.directions = response
+              vm.directionsDisplay.setDirections(response)
+            } else {
+              console.log('Directions request failed due to ' + status)
+            }
+          })
+        })
+      }
     },
     openDirection (destino) {
       if (window.mobilecheck) {
