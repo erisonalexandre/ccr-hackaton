@@ -190,7 +190,6 @@ export default {
       this.createDirections()
     },
     createDirections () {
-      console.log(this.firstMarker)
       if (this.firstMarker && this.secondMarker) {
         this.$refs.mapRef.$mapPromise.then((map) => {
           if (!this.directionsService) {
@@ -207,7 +206,23 @@ export default {
             travelMode: 'DRIVING'
           }, function (response, status) {
             if (status === 'OK') {
-              console.log(response)
+              const directionData = response.routes[0].legs[0]
+              const currentDatetime = new Date()
+              const formattedDate = currentDatetime.getDate() + '/' + (currentDatetime.getMonth() + 1) + '/' + currentDatetime.getFullYear()
+              const { user } = vm.$store.state.application
+              const { trips } = user
+              vm.$store.commit('application/tripsUserState', [
+                ...trips,
+                {
+                  id: trips.length + 1,
+                  start: directionData.start_address,
+                  destination: directionData.end_address,
+                  timeTraveled: '05:37:52',
+                  kmTraveled: parseInt(directionData.distance.value / 100),
+                  name: `de ${directionData.start_address} até ${directionData.end_address}`,
+                  date: formattedDate
+                }
+              ])
               vm.directions = response
               vm.directionsDisplay.setDirections(response)
             } else {

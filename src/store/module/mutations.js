@@ -9,3 +9,7 @@ export function userSessionState (state, userSession) {
 export function isLoggedState (state, isLogged) {
     state.isLogged = isLogged
 }
+
+export function tripsUserState (state, trips) {
+    state.user.trips = trips
+}
