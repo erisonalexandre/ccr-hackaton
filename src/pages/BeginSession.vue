@@ -1,9 +1,9 @@
 <template>
   <div class="container text-center w-100" style="background-color: #980000; height: 100vh;">
-    <div class="row align-center mb-40">
-      <h3 class="text-ccr-yellow" style="margin-bottom: 3px">MINHA ESTRADA</h3>
-      <img src="/statics/img/logo-background-red.png" alt="">
-      <h4 class="col-8 text-ccr-yellow" style="margin-top: 3px">Iniciar Sessão</h4>
+    <div class="align-center mb-40">
+      <h4 class="text-ccr-yellow" style="margin-bottom: 3px; margin-top: 0px; padding-top: 5px">MINHA ESTRADA</h4>
+      <img src="/statics/img/logo-background-red.png" alt="" style="width: 120px">
+      <h4 class=" text-ccr-yellow" style="margin-top: 3px">Iniciar Sessão</h4>
       <p class="text-white">Enviaremos uma mensagem para seu WhatsApp ou um SMS para verificar seu número de telefone.</p>
     </div>
 
@@ -84,7 +84,7 @@ export default {
   }
   .q-input {
     background-color: white;
-    font-size: 18px;
+    font-size: 15px;
     &:first-child {
       border-radius: 10px 0 0 10px;
     }

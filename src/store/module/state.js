@@ -1,6 +1,6 @@
 export default function () {
   return {
-    isLogged: true,
+    isLogged: false,
     userSession: '123ui12h3123',
     user: {
       profilePicture: 'https://images.unsplash.com/photo-1468218457742-ee484fe2fe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',

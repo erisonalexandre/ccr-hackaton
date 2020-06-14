@@ -1,5 +1,19 @@
 <template>
   <div>
+    <q-dialog v-model="modalLogged" persistent>
+      <q-card>
+        <q-card-section>
+          <div class="row items-center text-center" style="margin-bottom: 20px">
+            <span class="col-12" style="font-size: 18px">Para acessar essa página você precisa está cadastrado na nossa plataforma</span>
+          </div>
+        </q-card-section>
+
+        <q-card-actions align="center" class="botoes-modal">
+          <q-btn label="Cadastrar" @click="cadastrar" />
+          <q-btn label="cancelar" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
     <div class="container-input-position">
       <GmapAutocomplete
         @focus="focusFirstPlace"
@@ -92,6 +106,7 @@ export default {
   name: 'Maps',
   data () {
     return {
+      modalLogged: null,
       firstMarkerText: null,
       firstMarker: null,
       secondMarker: null,
@@ -161,7 +176,7 @@ export default {
     searchPlace (event) {
       const { value } = event.target
       if (value.length > 0) {
-        if(this.firstMarkerText === 'Localização atual') {
+        if (this.firstMarkerText === 'Localização atual') {
           this.firstMarkerText = 'Inserir local de partida'
         }
         this.showPositionNow = false
@@ -238,7 +253,21 @@ export default {
       } else {
         window.open(`http://maps.google.com/maps?z=3&daddr=${destino}`)
       }
+    },
+    cadastrar () {
+      this.$router.push({ name: 'BeginSession' })
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    if (to.name !== 'Emergency' && to.name !== 'BeginSession') {
+      const { isLogged } = this.$store.state.application
+
+      if (!isLogged) {
+        this.modalLogged = true
+        return false
+      }
+    }
+    return next()
   }
 }
 </script>
@@ -270,5 +299,20 @@ export default {
     height: 48px;
     padding: 10px;
     border: 1px solid #d0cfcf;
+  }
+  .q-card {
+    background-color: #9E260E;
+    color: white;
+  }
+  .botoes-modal {
+    button {
+      color: black;
+      &:first-child {
+        background-color: #F1C232;
+      }
+      &:last-child {
+        background-color: #e2e0e0;
+      }
+    }
   }
 </style>
