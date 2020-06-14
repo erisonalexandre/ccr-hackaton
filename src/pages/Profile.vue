@@ -76,7 +76,7 @@
       </q-field>
        <q-field filled class="content" stack-label>
         <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ rankings.points }}</div>
+          <div class="self-center full-width no-outline">{{ allPoints }}</div>
         </template>
       </q-field>
     </div>
@@ -106,7 +106,7 @@ export default {
     }
   },
   data () {
-    const { user, rankings } = this.$store.state.application
+    const { user, rankings, health } = this.$store.state.application
     const { trips } = user
     const kmTraveled = ('' + trips.reduce((value, trip) => value + trip.kmTraveled, 0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
     const arrTripsTimes = trips.map((t) => t.timeTraveled)
@@ -114,13 +114,16 @@ export default {
     const hours = allTimeTraveled[0]
     const minutes = allTimeTraveled[1]
 
+    const allPoints = health.filter(h => h.isDone).reduce((acc, h) => acc + h.points, 0)
+
     return {
       user,
       trips,
       rankings,
       kmTraveled,
       hours,
-      minutes
+      minutes,
+      allPoints
     }
   }
 }
