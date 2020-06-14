@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "hackathon app",
   "productName": "CCR APP",
-  "cordovaId": "org.cordova.quasar.app",
+  "cordovaId": "com.br.ccr.minhaestrada",
   "capacitorId": "",
   "author": "erison <erisonalexandre14@gmail.com>",
   "private": true,
