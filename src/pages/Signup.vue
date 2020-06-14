@@ -17,7 +17,7 @@
           <q-input v-model="user.birthday" filled label="Data de nascimento" :mask="'##/##/####'" required/>
         </div>
         <div class="mb-3">
-          <q-input v-model="user.vehiclePlate" filled label="Placa de caminhão" mask="###-####" required/>
+          <q-input v-model="user.vehiclePlate" filled label="Placa de caminhão" :mask="'XXX-#X###'" required/>
         </div>
         <div class="mt-40">
           <q-btn label="Avançar" type="submit" rounded class="w-100 background-yellow text-white"/>
