@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .container {
     display: flex;
     min-height: calc(100vh - 72px);
