@@ -28,8 +28,8 @@
   </div>
   <div class="body">
     <div class="row body-row">
-      <q-icon class="icon" name="style" />
-       <q-field class="label" borderless stack-label>
+      <img src="/statics/svg/Tracking.svg" class="q-mr-sm" alt="">
+      <q-field class="label" borderless stack-label>
         <template v-slot:control>
           <div class="self-center full-width no-outline">Viagens Realizadas</div>
         </template>
@@ -41,8 +41,8 @@
       </q-field>
     </div>
     <div class="row body-row">
-      <q-icon class="icon" name="style" />
-       <q-field class="label" borderless stack-label>
+      <img src="/statics/svg/clock.svg" class="q-mr-sm" alt="">
+      <q-field class="label" borderless stack-label>
         <template v-slot:control>
           <div class="self-center full-width no-outline">Tempo Viajando</div>
         </template>
@@ -54,8 +54,8 @@
       </q-field>
     </div>
     <div class="row body-row">
-      <q-icon class="icon" name="style" />
-       <q-field class="label" borderless stack-label>
+      <img src="/statics/svg/kmh.svg" class="q-mr-sm" alt="">
+      <q-field class="label" borderless stack-label>
         <template v-slot:control>
           <div class="self-center full-width no-outline">Quilômetros Rodados</div>
         </template>
@@ -67,8 +67,8 @@
       </q-field>
     </div>
     <div class="row body-row">
-      <q-icon class="icon" name="style" />
-       <q-field class="label" borderless stack-label>
+      <img src="/statics/svg/notes.svg" class="q-mr-sm" alt="">
+      <q-field class="label" borderless stack-label>
         <template v-slot:control>
           <div class="self-center full-width no-outline">Pontos Acumulados</div>
         </template>
@@ -80,7 +80,7 @@
       </q-field>
     </div>
     <q-btn class="button-rotas">
-      <q-icon name="style" />
+      <img src="/statics/svg/road.svg" style="margin-right: 10px; width: 25px;" alt="">
       <span>
         Rotas
       </span>
