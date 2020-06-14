@@ -23,7 +23,6 @@ export default {
     display: flex;
     min-height: calc(100vh - 72px);
     flex-direction: column;
-    justify-content: flex-start;
     background-color: #9E260E;
   }
 
