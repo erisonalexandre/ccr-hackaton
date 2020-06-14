@@ -1,8 +1,8 @@
 {
-  "name": "ccr",
+  "name": "minhaestrada",
   "version": "0.0.1",
   "description": "hackathon app",
-  "productName": "CCR APP",
+  "productName": "Minha Estrada",
   "cordovaId": "com.br.ccr.minhaestrada",
   "capacitorId": "",
   "author": "erison <erisonalexandre14@gmail.com>",

@@ -1,6 +1,6 @@
 {
     "name": "com.br.ccr.minhaestrada",
-    "displayName": "CCR APP",
+    "displayName": "Minha Estrada",
     "version": "1.0.0",
     "description": "A sample Apache Cordova application that responds to the deviceready event.",
     "main": "index.js",

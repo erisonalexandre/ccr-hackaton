@@ -1,4 +1,4 @@
-# CCR APP (ccr)
+# Minha Estrada (ccr)
 
 hackathon app
 

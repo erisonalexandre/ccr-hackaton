@@ -113,8 +113,8 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'CCR APP',
-        short_name: 'CCR APP',
+        name: 'Minha Estrada',
+        short_name: 'Minha Estrada',
         description: 'hackathon app',
         display: 'standalone',
         orientation: 'portrait',
