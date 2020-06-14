@@ -23,6 +23,7 @@
 
 <script>
 import { HalfCircleSpinner } from 'epic-spinners'
+import { getSession } from '../services/getSession'
 
 export default {
   name: 'PageIndex',
@@ -32,22 +33,22 @@ export default {
   data () {
     return {
       isLoading: true,
-      isLogged: this.$store.state.application.user?.islogged,
+      isLogged: this.$store.state.application.user?.islogged
     }
   },
-  created: function() {
-    let { application } = this.$store.state
-    let { user } = application
+  beforeDestroy () {
+    this.isLoading = false
+  },
+  created () {
+    const { application } = this.$store.state
+    const { user } = application
 
-    // timeout to represent the api to validate if application contains an user
-    // if has an user, and it's logged, navigate to 
-    setTimeout(() => {
-      // solve loading
-      this.isLoading = false;
-      this.isLogged = user.userSession === 'oenfaeifu01923g89';
-
+    getSession().then(session => {
+      this.isLogged = user.userSession === session
       this.$router.push('tabs')
-    }, 3000);
+    }).catch(r => {
+      console.error(r)
+    })
   }
 }
 </script>
