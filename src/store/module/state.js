@@ -10,18 +10,6 @@ export default function () {
       birthday: '1986/08/23',
       vehiclePlate: 'AAA0001',
       finishedRegister: true,
-      health: [
-        {
-          id: 1,
-          date: '2020/06/12 23:00:00',
-          description: 'Tomei água'
-        },
-        {
-          id: 2,
-          date: '2020/06/12 21:00:00',
-          description: 'Fiz exercícios'
-        }
-      ],
       trips: [
         {
           id: 1,
