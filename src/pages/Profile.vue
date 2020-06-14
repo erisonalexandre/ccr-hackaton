@@ -3,6 +3,7 @@
   <div class="profile">
     <q-avatar size="100px" class="profile-picture">
       <q-img
+      :ratio="1"
       :src="user.profilePicture"
       spinner-color="#F1C232"
       spinner-size="82px"

@@ -19,7 +19,7 @@
       <div v-for="users in rankings.podium" v-bind:key="users.position">
         <div v-bind:class="[users.isUser ? 'user-winner' : 'user-podium']">
           <q-avatar class="user-position" rounded size="48px">
-          <img :src="users.profilePicture" />
+          <q-img :ratio="1" :src="users.profilePicture" />
           <q-badge floating color="red">{{ users.position }}</q-badge>
         </q-avatar>
 
@@ -46,7 +46,7 @@
 
     <div class="my-score">
       <q-avatar class="user-position" rounded size="48px">
-        <img :src="user.profilePicture" />
+        <q-img :ratio="1" :src="user.profilePicture" />
         <q-badge floating color="red">{{ rankings.position }}</q-badge>
       </q-avatar>
 
@@ -97,8 +97,6 @@ export default {
 
   .thumbnail {
     height: 100%;
-    width: calc(100vw - 16px);
-    margin: 0 24px 0 0;
   }
 
   .container > .title {
