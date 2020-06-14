@@ -1,5 +1,7 @@
 <template>
-  <div class="container text-center w-100" style="margin-top: 15%">
+  <div class="container text-center w-100" style="padding-top: 35px">
+    <img src="/statics/img/logo-background-white.png" alt="">
+
     <div class="row align-center mb-40">
       <h4 class="col-8 text-ccr-primary"><b>Verificação</b></h4>
       <p>Digite o código de acesso de 6 digítos que chegou para você</p>

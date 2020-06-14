@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="row align-center">
-      <h4 class="col-8"><b>Cadastre-se</b></h4>
-      <q-avatar class="background-yellow" text-color="white" icon="person" size="100px"/>
+      <h4 class="col-8"><b>Cadastre-se no</b><br/><b class="text-ccr-primary">MINHA ESTRADA</b></h4>
+      <q-avatar class="background-ccr-primary" text-color="white" icon="person" size="100px"/>
     </div>
 
     <div>
@@ -69,6 +69,9 @@ export default {
   }
   .background-yellow {
     background-color: #F1C232
+  }
+  .background-ccr-primary {
+    background-color: #9E260E
   }
   .q-btn__wrapper:before {
     box-shadow: none;

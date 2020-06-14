@@ -1,8 +1,10 @@
 <template>
-  <div class="container text-center w-100" style="margin-top: 15%">
+  <div class="container text-center w-100" style="background-color: #980000; height: 100vh;">
     <div class="row align-center mb-40">
-      <h4 class="col-8 text-ccr-primary"><b>Iniciar Sessão</b></h4>
-      <p>Enviaremos uma mensagem para seu WhatsApp ou um SMS para verificar seu número de telefone.</p>
+      <h3 class="text-ccr-yellow" style="margin-bottom: 3px">MINHA ESTRADA</h3>
+      <img src="/statics/img/logo-background-red.png" alt="">
+      <h4 class="col-8 text-ccr-yellow" style="margin-top: 3px">Iniciar Sessão</h4>
+      <p class="text-white">Enviaremos uma mensagem para seu WhatsApp ou um SMS para verificar seu número de telefone.</p>
     </div>
 
     <div>
@@ -21,8 +23,8 @@
             filled
             class="col-10"
             v-model="phone"
-            placeholder="Escreva seu número"
-            mask="### - ####"
+            placeholder="9999 - 9999"
+            mask="#### - ####"
             required
           />
         </div>
@@ -70,7 +72,25 @@ export default {
   .text-ccr-primary {
     color: #9E260E
   }
+  .text-ccr-yellow {
+    color: #F1C232
+  }
   .q-btn__wrapper:before {
     box-shadow: none;
+  }
+  h3 {
+    font-family: Kadwa;
+    font-weight: bold;
+  }
+  .q-input {
+    background-color: white;
+    font-size: 18px;
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
   }
 </style>
