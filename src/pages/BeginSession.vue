@@ -36,10 +36,10 @@
 
 <script>
 export default {
-  name: 'PageSignUp',
+  name: 'BeginSession',
   methods: {
     pass () {
-      this.$router.push({ name: 'Verification', params: { userId: '123' } })
+      this.$router.push({ name: 'Verification' })
     }
   }
 }

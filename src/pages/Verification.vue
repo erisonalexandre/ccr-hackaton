@@ -29,10 +29,10 @@
 
 <script>
 export default {
-  name: 'PageSignUp',
+  name: 'Verification',
   methods: {
     pass () {
-      this.$router.push({ name: 'Maps', params: { userId: '123' } })
+      this.$router.push({ name: 'Maps' })
     }
   }
 }
