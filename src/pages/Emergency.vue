@@ -8,7 +8,7 @@
     </span>
     <q-btn type="a" href="tel:190" class="item" color="black" label="Polícia" />
     <q-btn type="a" href="tel:0800000290" class="item" color="red" label="Central CCR" />
-    <q-btn type="a" href="whatsapp://send?phone=5551999723625&text=Eu%20preciso%20de%20ajuda%21" class="item" color="green" label="Suporte via WhatsApp" />
+    <q-btn type="a" href="whatsapp://send?phone=5531985262283&text=Eu%20preciso%20de%20ajuda%21" class="item" color="green" label="Suporte via WhatsApp" />
   </div>
 </template>
 
