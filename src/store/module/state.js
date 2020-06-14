@@ -8,7 +8,7 @@ export default function () {
       lastName: 'Bernardes',
       telephone: '+55929999999999',
       birthday: '1986/08/23',
-      vehiclePlate: 'AAA0001',
+      vehiclePlate: 'AAA-0001',
       finishedRegister: true,
       trips: [
         {
@@ -51,6 +51,7 @@ export default function () {
         date: '2020/06/12 20:00:00',
         description: 'Fiz exercícios',
         isDone: true,
+        points: 10,
         type: 'exercise'
       },
       {
@@ -58,6 +59,7 @@ export default function () {
         date: '2020/06/12 21:00:00',
         description: 'Tomei água',
         isDone: true,
+        points: 10,
         type: 'drink_water'
       },
       {
@@ -65,6 +67,7 @@ export default function () {
         date: '2020/06/13 12:15:00',
         description: 'Descanso de tarde',
         isDone: true,
+        points: 10,
         type: 'sleep'
       }
     ],
