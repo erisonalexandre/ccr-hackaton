@@ -1,18 +1,16 @@
 function addTimes (arr) {
-  var times = [ 0, 0, 0 ]
-  var max = times.length
+  var times = [0, 0, 0]
 
   var hours = times[0]
   var minutes = times[1]
   var seconds = times[2]
 
-  for (let time of arr) {
-    let splited = (time || '').split(':')
+  for (const time of arr) {
+    const splited = (time || '').split(':')
     hours += isNaN(parseInt(splited[0])) ? 0 : parseInt(splited[0])
     minutes += isNaN(parseInt(splited[1])) ? 0 : parseInt(splited[1])
     seconds += isNaN(parseInt(splited[2])) ? 0 : parseInt(splited[2])
   }
-
 
   if (seconds >= 60) {
     var m = (seconds / 60) << 0
