@@ -15,7 +15,7 @@
             v-model="ddd"
             class="col-2"
             style="border-right: 1px solid #e0dede;"
-            placeholder="+55"
+            placeholder="+00"
             mask="+##"
             required
           />
@@ -23,8 +23,8 @@
             filled
             class="col-10"
             v-model="phone"
-            placeholder="9999 - 9999"
-            mask="#### - ####"
+            placeholder="9999 - 99999"
+            mask="#### - #####"
             required
           />
         </div>
