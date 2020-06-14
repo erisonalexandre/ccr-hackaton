@@ -82,7 +82,7 @@ export default function () {
     ],
     rankings: {
       prize: 'Corte de cabelo',
-      prizeThumbnail: 'https://www.easypromosapp.com/blog/en/wp-content/uploads/xxss_sorteio_no_instagram.png',
+      prizeThumbnail: '/statics/img/thumbnail-prize.jpg',
       points: 60,
       podium: [
         {
