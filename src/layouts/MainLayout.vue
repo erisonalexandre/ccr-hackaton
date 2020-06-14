@@ -26,6 +26,10 @@ export default {
 }
 </script>
 <style lang="scss">
+  .q-tabs__content{
+    display: flex;
+    justify-content: space-around;
+  }
   a.q-tab {
     padding: 0;
   }
