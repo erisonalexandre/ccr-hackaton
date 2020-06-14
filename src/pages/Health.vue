@@ -26,7 +26,7 @@
           <span>Sono</span>
         </div>
         <div class="col-8">
-          04
+          {{ sleep }}
         </div>
       </div>
       <div class="item row">
@@ -35,7 +35,7 @@
           <span>Descanço</span>
         </div>
         <div class="col-8">
-          04
+          {{ rest }}
         </div>
       </div>
       <div class="item row">
@@ -44,7 +44,7 @@
           <span>Exercícios</span>
         </div>
         <div class="col-8">
-          04
+          {{ execise }}
         </div>
       </div>
       <div class="item row">
@@ -53,7 +53,7 @@
           <span>Água</span>
         </div>
         <div class="col-8">
-          04
+          {{ drinkWater }}
         </div>
       </div>
       <div class="item row">
@@ -62,7 +62,7 @@
           <span>Peso</span>
         </div>
         <div class="col-8">
-          04
+          {{ weight }}
         </div>
       </div>
       <div class="item row">
@@ -71,26 +71,37 @@
           <span>Dados Importantes</span>
         </div>
         <div class="col-8">
-          04
+          {{ importantData }}
         </div>
       </div>
     </div>
   </div>
-  <!-- <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
-  </q-page> -->
 </template>
 
 <script>
 export default {
   name: 'PageHealth',
-  data() {
+  data () {
+    const { health } = this.$store.state.application
+    const execise = health.filter((h) => h.type === 'exercise').length
+    const sleep = health.filter(h => h.type === 'sleep').length
+    const rest = health.filter(h => h.type === 'rest').length
+    const drinkWater = health.filter(h => h.type === 'drink_water').length
+    const weight = health.filter(h => h.type === 'weight').length
+    const importantData = health.filter(h => h.type === 'important_data').length
+
     return {
-      confirm: null
+      confirm: null,
+      execise,
+      sleep,
+      rest,
+      drinkWater,
+      weight,
+      importantData
     }
   },
   beforeCreate () {
-    let { isLogged } = this.$store.state.application
+    const { isLogged } = this.$store.state.application
     if (!isLogged) {
       this.$router.push({ name: 'BeginSession' })
     }
