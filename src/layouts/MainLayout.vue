@@ -6,10 +6,10 @@
         class="text-white shadow-2"
         style="background-color: #F1C232; text-size: 12px"
       >
-        <q-route-tab to="Health" icon="favorite" label="Saúde" />
-        <q-route-tab to="Profile" icon="account_circle" label="Perfil" />
-        <q-route-tab to="Maps" icon="room" label="Mapa" />
         <q-route-tab to="Rewards" icon="emoji_events" label="Recompensas" />
+        <q-route-tab to="Health" icon="favorite" label="Saúde" />
+        <q-route-tab to="Maps" icon="room" label="Mapa" />
+        <q-route-tab to="Profile" icon="account_circle" label="Perfil" />
         <q-route-tab to="Emergency" icon="campaign" label="Emergência" />
       </q-tabs>
     </q-footer>
