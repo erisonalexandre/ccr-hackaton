@@ -16,7 +16,6 @@ export default function () {
           date: '2020/06/12 23:00:00',
           description: 'Tomei água'
         },
-        
         {
           id: 2,
           date: '2020/06/12 21:00:00',
