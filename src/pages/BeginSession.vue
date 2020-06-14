@@ -10,7 +10,7 @@
         <div class="row mb-40">
           <q-input
             filled
-            v-model="phone"
+            v-model="ddd"
             class="col-2"
             style="border-right: 1px solid #e0dede;"
             placeholder="+55"
@@ -37,6 +37,12 @@
 <script>
 export default {
   name: 'BeginSession',
+  data () {
+    return {
+      ddd: null,
+      phone: null
+    }
+  },
   methods: {
     pass () {
       this.$router.push({ name: 'Verification' })

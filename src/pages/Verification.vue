@@ -13,7 +13,7 @@
             input-class="text-center"
             class="text-center"
             style="font-size:25px"
-            v-model="phone"
+            v-model="number"
             placeholder="1  1  1   1  1  1"
             mask="#  #  #   #  #  #"
             required
@@ -30,9 +30,14 @@
 <script>
 export default {
   name: 'Verification',
+  data () {
+    return {
+      number: null
+    }
+  },
   methods: {
     pass () {
-      this.$router.push({ name: 'Maps' })
+      this.$router.push({ name: 'Signup' })
     }
   }
 }

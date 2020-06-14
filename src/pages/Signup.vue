@@ -6,18 +6,18 @@
     </div>
 
     <div>
-      <q-form>
+      <q-form @submit.prevent="register">
         <div class="mb-3">
-          <q-input v-model="text" filled label="Nome" />
+          <q-input v-model="user.firstName" filled label="Nome" required/>
         </div>
         <div class="mb-3">
-          <q-input v-model="text" filled label="Sobrenome" />
+          <q-input v-model="user.lastName" filled label="Sobrenome" required/>
         </div>
         <div class="mb-3">
-          <q-input v-model="text" filled label="Data de nascimento" />
+          <q-input v-model="user.birthday" filled label="Data de nascimento" :mask="'##/##/####'" required/>
         </div>
         <div class="mb-3">
-          <q-input v-model="text" filled label="Placa de caminhão" />
+          <q-input v-model="user.vehiclePlate" filled label="Placa de caminhão" required/>
         </div>
         <div class="mt-40">
           <q-btn label="Avançar" type="submit" rounded class="w-100 background-yellow text-white"/>
@@ -29,7 +29,28 @@
 
 <script>
 export default {
-  name: 'PageSignUp'
+  name: 'PageSignUp',
+  data () {
+    return {
+      user: {
+        firstName: null,
+        lastName: null,
+        telephone: null,
+        birthday: null,
+        vehiclePlate: null
+      }
+    }
+  },
+  methods: {
+    register () {
+      console.log(this.$store.state)
+
+      this.$store.commit('application/userState', this.user)
+      this.$store.commit('application/userSessionState', 'jafsdhgas')
+      this.$store.commit('application/isloggedState', true)
+      this.$router.push({ name: 'Maps' })
+    }
+  }
 }
 </script>
 
