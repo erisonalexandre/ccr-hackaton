@@ -1,0 +1,42 @@
+{
+  "islogged": true,
+  "userSession": "fioueneafuiafe",
+  "user": {
+    "firstName": "Francisco",
+    "lastName": "Bernardes",
+    "telephone": "+55929999999999",
+    "birthday": "1986/08/23",
+    "vehiclePlate": "AAA0001",
+    "health": [
+      {
+        "id": "1",
+        "date": "2020/06/12 23:00:00",
+        "description": "Tomei água"
+      },
+      
+      {
+        "id": "2",
+        "date": "2020/06/12 21:00:00",
+        "description": "Fiz exercícios"
+      }
+    ],
+    "trips": [
+      {
+        "id": "1",
+        "start": "novo hamburgo rs",
+        "destination": "cidade baixa, porto alegre rs",
+        "timeTraveled": "112:37:52",
+        "name": "de novo hamburgo até cidade baixa",
+        "date": "2020/06/10"
+      },
+      {
+        "id": "2",
+        "start": "campo bom rs",
+        "destination": "florianopois sc",
+        "timeTraveled": "203:37:52",
+        "name": "de novo hamburgo até cidade baixa",
+        "date": "2020/06/10"
+      }
+    ]
+  }
+}
