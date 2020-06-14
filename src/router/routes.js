@@ -16,7 +16,9 @@ const routes = [
     component: () => import('layouts/LoginLayout.vue'),
     children: [
       { name: 'Signin', path: 'Signin', component: () => import('pages/Signin.vue') },
-      { name: 'Signup', path: 'Signup', component: () => import('pages/Signup.vue') }
+      { name: 'Signup', path: 'Signup', component: () => import('pages/Signup.vue') },
+      { name: 'Verification', path: 'Verification', component: () => import('pages/Verification.vue') },
+      { name: 'BeginSession', path: 'BeginSession', component: () => import('pages/BeginSession.vue') }
     ]
   },
   { path: '/', component: () => import('pages/Index.vue') }
