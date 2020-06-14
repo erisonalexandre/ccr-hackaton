@@ -47,7 +47,7 @@ export default {
 
       this.$store.commit('application/userState', this.user)
       this.$store.commit('application/userSessionState', 'jafsdhgas')
-      this.$store.commit('application/isloggedState', true)
+      this.$store.commit('application/isLoggedState', true)
       this.$router.push({ name: 'Maps' })
     }
   }

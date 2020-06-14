@@ -6,6 +6,6 @@ export function userSessionState (state, userSession) {
     state.userSession = userSession
 }
 
-export function isloggedState (state, isLogged) {
-    state.islogged = isLogged
+export function isLoggedState (state, isLogged) {
+    state.isLogged = isLogged
 }
