@@ -1,7 +1,7 @@
 export default function () {
   return {
-    islogged: true,
-    userSession: "fioueneafuiafe",
+    islogged: false,
+    userSession: null,
     user: {
       profilePicture: "https://www.pngkey.com/png/detail/121-1219231_user-default-profile.png",
       firstName: "João",

@@ -7,6 +7,12 @@
 
 <script>
 export default {
-  name: 'PageHealth'
+  name: 'PageHealth',
+  beforeCreate () {
+    let { isLogged } = this.$store.state.application;
+    if(!isLogged) {
+      this.$router.push({ name: 'BeginSession' })
+    }
+  }
 }
 </script>

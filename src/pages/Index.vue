@@ -32,22 +32,21 @@ export default {
   data () {
     return {
       isLoading: true,
-      isLogged: false,
-      userSession: 'oenfaeifu01923g89'
+      isLogged: this.$store.state.application.user?.islogged,
     }
   },
   created: function() {
+    let { application } = this.$store.state
+    let { user } = application
+
     // timeout to represent the api to validate if application contains an user
     // if has an user, and it's logged, navigate to 
     setTimeout(() => {
       // solve loading
       this.isLoading = false;
-      this.isLogged = this.userSession === 'oenfaeifu01923g89';
-      if(this.isLogged) {
-        this.$router.push('tabs')
-      } else {
-        this.$router.push('login/Signup')
-      }
+      this.isLogged = user.userSession === 'oenfaeifu01923g89';
+
+      this.$router.push('tabs')
     }, 3000);
   }
 }
