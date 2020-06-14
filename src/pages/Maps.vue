@@ -6,7 +6,7 @@
         @blur="blurFirstPlace"
         @input="searchPlace"
         @place_changed="setPlace"
-        placeholder="Inserir local de partida"
+        :placeholder="firstMarkerText"
         :options="{
           componentRestrictions: {country: 'br'}
         }">
@@ -22,8 +22,8 @@
         }">
       </GmapAutocomplete>
       <div class="w-100" style="width: 90%; padding: 15px 0">
-        <p style="margin-bottom: 2px">Distancia: {{ directions ? directions.routes[0].legs[0].distance.text : '' }}</p>
-        <p>Duração estimada: {{ directions ? directions.routes[0].legs[0].duration.text : '' }}</p>
+        <p style="margin-bottom: 2px">{{ directions ? `Distancia: ${directions.routes[0].legs[0].distance.text}` : '' }}</p>
+        <p>{{ directions ? `Duração estimada: ${directions.routes[0].legs[0].duration.text}` : '' }}</p>
       </div>
     </div>
     <GmapMap
@@ -89,9 +89,10 @@ Vue.use(VueGoogleMaps, {
   installComponents: true
 })
 export default {
-  name: 'MapaUnidades',
+  name: 'Maps',
   data () {
     return {
+      firstMarkerText: null,
       firstMarker: null,
       secondMarker: null,
       center: { lat: -3.0868934, lng: -60.0350299 },
@@ -147,18 +148,22 @@ export default {
     //   console.log('New GPS position: ', position)
     //   this.position = position
     // })
-    this.getCurrentPosition()
   },
   methods: {
     getCurrentPosition () {
       Geolocation.getCurrentPosition().then(position => {
         let { latitude, longitude } = position.coords
         this.firstMarker = { lat: latitude, lng: longitude }
+        this.firstMarkerText = 'Localização atual'
       })
+      this.createDirections()
     },
     searchPlace (event) {
       const { value } = event.target
       if (value.length > 0) {
+        if(this.firstMarkerText === 'Localização atual') {
+          this.firstMarkerText = 'Inserir local de partida'
+        }
         this.showPositionNow = false
       } else {
         this.showPositionNow = true
@@ -168,7 +173,9 @@ export default {
       this.showPositionNow = true
     },
     blurFirstPlace () {
-      this.showPositionNow = false
+      setTimeout(() => {
+        this.showPositionNow = false
+      }, 30)
     },
     setPlace (place) {
       this.place = place
@@ -183,6 +190,7 @@ export default {
       this.createDirections()
     },
     createDirections () {
+      console.log(this.firstMarker)
       if (this.firstMarker && this.secondMarker) {
         this.$refs.mapRef.$mapPromise.then((map) => {
           if (!this.directionsService) {
