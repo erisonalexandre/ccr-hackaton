@@ -2,7 +2,6 @@
   <q-layout view="lHh Lpr lFf">
     <q-footer elevated>
       <q-tabs
-        v-model="tab"
         indicator-color="yellow"
         class="text-white shadow-2"
         style="background-color: #F1C232; text-size: 12px"
