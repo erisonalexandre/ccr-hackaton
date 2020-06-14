@@ -3,7 +3,7 @@ export default function () {
     isLogged: true,
     userSession: '123ui12h3123',
     user: {
-      profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg',
+      profilePicture: 'https://images.unsplash.com/photo-1468218457742-ee484fe2fe4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       firstName: 'João',
       lastName: 'Bernardes',
       telephone: '+55929999999999',
@@ -90,35 +90,35 @@ export default function () {
           position: 1,
           points: 820,
           isUser: false,
-          profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg'
+          profilePicture: 'https://images.unsplash.com/photo-1533101585792-27f81a845550?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
         },
         {
           name: 'Manuela',
           position: 2,
           points: 770,
           isUser: false,
-          profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg'
+          profilePicture: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
         },
         {
           name: 'Robson',
           position: 3,
           points: 710,
           isUser: false,
-          profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg'
+          profilePicture: 'https://images.unsplash.com/photo-1562457753-6867bda028cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
         },
         {
           name: 'João',
           position: 4,
           points: 700,
           isUser: false,
-          profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg'
+          profilePicture: 'https://images.unsplash.com/photo-1535643302794-19c3804b874b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
         },
         {
           name: 'Iago',
           position: 5,
           points: 690,
           isUser: false,
-          profilePicture: 'https://pbs.twimg.com/profile_images/1256071075441541126/_BesNopU_400x400.jpg'
+          profilePicture: 'https://images.unsplash.com/photo-1542803293-cde7da05c348?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
         }
       ],
       position: 72
