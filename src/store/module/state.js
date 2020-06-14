@@ -61,16 +61,19 @@ export default function () {
       {
         id: 1,
         date: '2020/06/12 23:00:00',
-        description: 'Fiz exercícios'
+        description: 'Fiz exercícios',
+        type: 'exercise'
       },
       {
         id: 2,
         date: '2020/06/12 21:00:00',
-        description: 'Tomei água'
+        description: 'Tomei água',
+        type: 'drink_water'
       }
     ],
     rankings: {
       prize: 'Corte de cabelo',
+      prizeThumbnail: 'https://www.easypromosapp.com/blog/en/wp-content/uploads/xxss_sorteio_no_instagram.png',
       points: 60,
       podium: [
         {
