@@ -108,7 +108,7 @@ export default {
   data () {
     const { user, rankings, health } = this.$store.state.application
     const { trips } = user
-    const kmTraveled = ('' + trips.reduce((value, trip) => value + trip.kmTraveled, 0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    const kmTraveled = trips.reduce((value, trip) => value + trip.kmTraveled, 0)
     const arrTripsTimes = trips.map((t) => t.timeTraveled)
     const allTimeTraveled = addTimes(arrTripsTimes).split(':')
     const hours = allTimeTraveled[0]
