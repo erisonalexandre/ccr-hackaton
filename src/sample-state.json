@@ -2,7 +2,7 @@
   "islogged": true,
   "userSession": "fioueneafuiafe",
   "user": {
-    "firstName": "Francisco",
+    "firstName": "João",
     "lastName": "Bernardes",
     "telephone": "+55929999999999",
     "birthday": "1986/08/23",
@@ -77,7 +77,7 @@
         "isUser": false
       },
       {
-        "name": "Francisco",
+        "name": "João",
         "points": 700,
         "isUser": true
       },

@@ -3,7 +3,8 @@ export default function () {
     islogged: true,
     userSession: "fioueneafuiafe",
     user: {
-      firstName: "Francisco",
+      profilePicture: "https://www.pngkey.com/png/detail/121-1219231_user-default-profile.png",
+      firstName: "João",
       lastName: "Bernardes",
       telephone: "+55929999999999",
       birthday: "1986/08/23",
@@ -78,7 +79,7 @@ export default function () {
           isUser: false
         },
         {
-          name: "Francisco",
+          name: "João",
           points: 700,
           isUser: true
         },
