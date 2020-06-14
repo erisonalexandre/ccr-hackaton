@@ -1,25 +1,43 @@
 <template>
   <div>
     <div class="container-input-position">
-      <q-input v-model="firstMarker" filled label="Inserir local de partida"/>
-      <q-input v-model="secondMarker" filled label="Para onde ?"/>
+      <GmapAutocomplete
+        @focus="focusFirstPlace"
+        @blur="blurFirstPlace"
+        @input="searchPlace"
+        @place_changed="setPlace"
+        placeholder="Inserir local de partida"
+        :options="{
+          componentRestrictions: {country: 'br'}
+        }">
+      </GmapAutocomplete>
+      <div v-show="showPositionNow" class="pac-target-input" style="margin-top: -5px" @click="getCurrentPosition">
+        <q-icon name="room" /><span style="margin: 0 10px;">localização atual</span>
+      </div>
+      <GmapAutocomplete
+        placeholder="Para onde ?"
+        @place_changed="setPlace"
+        :options="{
+          componentRestrictions: {country: 'br'}
+        }">
+      </GmapAutocomplete>
     </div>
     <GmapMap
-    ref="mapRef"
-    :center="center"
-    :zoom="13"
-    :options="{
-      zoomControl: false,
-      mapTypeControl: false,
-      scaleControl: false,
-      streetViewControl: false,
-      rotateControl: false,
-      fullscreenControl: false,
-      disableDefaultUi: false
-    }"
-    map-type-id="roadmap"
-    style="width: 100%; height: calc(100vh - 72px)"
-  >
+      ref="mapRef"
+      :center="center"
+      :zoom="13"
+      :options="{
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        disableDefaultUi: false
+      }"
+      map-type-id="roadmap"
+      style="width: 100%; height: calc(100vh - 72px)"
+    >
     <template v-for="(m, index) in markers">
       <gmap-info-window :options="m.infoOptions" :position="m.position" :key="index + 'asd'">
       </gmap-info-window>
@@ -31,17 +49,22 @@
         @click="openDirection(m.infoOptions.content)"
       />
     </template>
+    <DirectionsRenderer />
   </GmapMap>
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import { Plugins } from '@capacitor/core'
+import DirectionsRenderer from '../plugins/DirectionsRenderer.js'
+
+const { Geolocation } = Plugins
 Vue.use(VueGoogleMaps, {
   load: {
     region: 'BR',
     language: 'pt-BR',
-    key: 'AIzaSyDv10Tc4CGtRSJ6t8TsSX1M_p6TtEQ_42M',
+    key: 'AIzaSyCDZqK-w65EKQmpZmMYhnMMsVhzLeJ1MtY',
     libraries: 'places, directions' // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
     // OR: libraries: 'places,drawing,visualization'
@@ -98,30 +121,72 @@ export default {
             }
           }
         }
-      ]
+      ],
+      place: null,
+      showPositionNow: false,
+      currentPosition: null,
+      geoId: null
     }
   },
+  components: {
+    DirectionsRenderer
+  },
+  computed: {
+    google: VueGoogleMaps.gmapApi
+  },
   mounted () {
-    // this.geolocation()
-    // this.$refs.mapRef.$mapPromise.then((map) => {
-    //     this.directionsService = new google.maps.DirectionsService()
-    //     this.directionsDisplay = new google.maps.DirectionsRenderer()
-    //     this.directionsDisplay.setMap(map)
-    //     var vm = this
-    //     vm.directionsService.route({
-    //         origin: this.currentLocation,
-    //         destination: {lat: -3.10713,lng: -60.01763},
-    //         travelMode: 'DRIVING'
-    //     }, function (response, status) {
-    //         if (status === 'OK') {
-    //             vm.directionsDisplay.setDirections(response)
-    //         } else {
-    //             console.log('Directions request failed due to ' + status)
-    //         }
-    //     })
+    // this.getCurrentPosition()
+
+    // we start listening
+    // this.geoId = Geolocation.watchPosition({}, (position, err) => {
+    //   console.log('New GPS position: ', position)
+    //   this.position = position
     // })
+    this.getCurrentPosition()
+    this.$refs.mapRef.$mapPromise.then((map) => {
+      this.directionsService = new this.google.maps.DirectionsService()
+      this.directionsDisplay = new this.google.maps.DirectionsRenderer()
+      this.directionsDisplay.setMap(map)
+      var vm = this
+      vm.directionsService.route({
+        origin: this.currentPosition,
+        destination: { lat: -3.10713, lng: -60.01763 },
+        travelMode: 'DRIVING'
+      }, function (response, status) {
+        if (status === 'OK') {
+          vm.directionsDisplay.setDirections(response)
+        } else {
+          console.log('Directions request failed due to ' + status)
+        }
+      })
+    })
   },
   methods: {
+    getCurrentPosition () {
+      Geolocation.getCurrentPosition().then(position => {
+        let { latitude, longitude } = position.coords
+        this.currentPosition = { lat: latitude, lng: longitude }
+      })
+    },
+    searchPlace (event) {
+      const { value } = event.target
+      if (value.length > 0) {
+        this.showPositionNow = false
+      } else {
+        this.showPositionNow = true
+      }
+    },
+    focusFirstPlace () {
+      this.showPositionNow = true
+    },
+    blurFirstPlace () {
+      this.showPositionNow = false
+    },
+    setPlace (place) {
+      this.place = place
+      let {lat, lng} = place.geometry.location
+      console.log(lat(), lng())
+    },
     openDirection (destino) {
       if (window.mobilecheck) {
         window.open(`google.navigation:q=${destino}`)
@@ -151,5 +216,14 @@ export default {
       border-radius: 5px;
       margin-top: 5px;
     }
+  }
+  .pac-target-input {
+    background-color: #f2f2f2;
+    width: 90%;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 48px;
+    padding: 10px;
+    border: 1px solid #d0cfcf;
   }
 </style>
