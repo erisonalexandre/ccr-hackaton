@@ -15,7 +15,7 @@
         <q-icon name="room" /><span style="margin: 0 10px;">localização atual</span>
       </div>
       <GmapAutocomplete
-        placeholder="Para onde ?"
+        placeholder="Para onde?"
         @place_changed="setSecondPlace"
         :options="{
           componentRestrictions: {country: 'br'}
@@ -231,7 +231,7 @@ export default {
 <style lang="scss" scoped>
   .container-input-position {
     position: absolute;
-    top: 0;
+    top: 16px;
     left: 0;
     right: 0;
     z-index: 2;
