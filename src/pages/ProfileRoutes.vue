@@ -27,64 +27,31 @@
     </div>
   </div>
   <div class="body">
-    <div class="row body-row">
-      <img src="/statics/svg/Tracking.svg" class="q-mr-sm" alt="">
-      <q-field class="label" borderless stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">Viagens Realizadas</div>
-        </template>
-      </q-field>
-       <q-field filled class="content" stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline"> {{ trips.length }} </div>
-        </template>
-      </q-field>
+    <div>
+      <div style="display: flex;">
+        <img src="/statics/svg/road.svg" style="width: 25px" class="q-mr-md q-ml-md" alt="">
+        <p style="margin: 0; font-size: 18px;"><b>Rotas</b></p>
+      </div>
+      <hr>
     </div>
-    <div class="row body-row">
-      <img src="/statics/svg/clock.svg" class="q-mr-sm" alt="">
-      <q-field class="label" borderless stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">Tempo Viajando</div>
-        </template>
-      </q-field>
-       <q-field filled class="content" stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ hours }}h {{ minutes }}m</div>
-        </template>
-      </q-field>
+    <div>
+      <div v-for="(trip, index) in trips" :key="index">
+        <table style="width: 100%; padding: 10px;">
+          <tr>
+            <td><span>Ponto de partida:</span> {{ trip.start }}</td>
+            <td><span>Km:</span> {{ trip.kmTraveled }}</td>
+          </tr>
+          <tr>
+            <td><span>Ponto de destino:</span> {{ trip.destination }}</td>
+            <td><span>Horas:</span> {{ trip.timeTraveled }}</td>
+          </tr>
+          <tr>
+            <td><span>Data:</span> {{ trip.date }}</td>
+          </tr>
+        </table>
+        <hr>
+      </div>
     </div>
-    <div class="row body-row">
-      <img src="/statics/svg/kmh.svg" class="q-mr-sm" alt="">
-      <q-field class="label" borderless stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">Quilômetros Rodados</div>
-        </template>
-      </q-field>
-       <q-field filled class="content" stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ kmTraveled }}km</div>
-        </template>
-      </q-field>
-    </div>
-    <div class="row body-row">
-      <img src="/statics/svg/notes.svg" class="q-mr-sm" alt="">
-      <q-field class="label" borderless stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">Pontos Acumulados</div>
-        </template>
-      </q-field>
-       <q-field filled class="content" stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ rankings.points }}</div>
-        </template>
-      </q-field>
-    </div>
-    <q-btn class="button-rotas" :to="{name: 'ProfileRoutes'}">
-      <img src="/statics/svg/road.svg" style="margin-right: 10px; width: 25px;" alt="">
-      <span>
-        Rotas
-      </span>
-    </q-btn>
   </div>
 </div>
 </template>
@@ -125,8 +92,14 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  tr {
+    line-height: 13px;
+    font-size: 11px;
+    span {
+      color: #9E260E;
+    }
+  }
   .container {
     display: flex;
     min-height: calc(100vh - 72px);

@@ -7,6 +7,7 @@ const routes = [
       { name: 'Emergency', path: 'Emergency', component: () => import('pages/Emergency.vue') },
       { name: 'Health', path: 'Health', component: () => import('pages/Health.vue') },
       { name: 'Profile', path: 'Profile', component: () => import('pages/Profile.vue') },
+      { name: 'ProfileRoutes', path: 'ProfileRoutes', component: () => import('pages/ProfileRoutes.vue') },
       { name: 'Rewards', path: 'Rewards', component: () => import('pages/Rewards.vue') },
       { path: '', redirect: 'Maps' }
     ]
