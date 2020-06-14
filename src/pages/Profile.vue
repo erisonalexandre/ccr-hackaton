@@ -26,7 +26,8 @@ export default {
     'QAvatar'
   ],
   beforeCreate () {
-    let { isLogged } = this.$store.state.application;
+    let { isLogged } = this.$store.state.application;    
+
     if(!isLogged) {
       this.$router.push({ name: 'BeginSession' })
     }
