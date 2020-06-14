@@ -251,7 +251,7 @@ export default {
     background-color: #f2f2f2;
     width: 90%;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 13px;
     height: 48px;
     padding: 10px;
     border: 1px solid #d0cfcf;
