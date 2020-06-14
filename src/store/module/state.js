@@ -60,15 +60,24 @@ export default function () {
     health: [
       {
         id: 1,
-        date: '2020/06/12 23:00:00',
+        date: '2020/06/12 20:00:00',
         description: 'Fiz exercícios',
+        isDone: true,
         type: 'exercise'
       },
       {
         id: 2,
         date: '2020/06/12 21:00:00',
         description: 'Tomei água',
+        isDone: true,
         type: 'drink_water'
+      },
+      {
+        id: 3,
+        date: '2020/06/13 12:15:00',
+        description: 'Descanso de tarde',
+        isDone: true,
+        type: 'sleep'
       }
     ],
     rankings: {
