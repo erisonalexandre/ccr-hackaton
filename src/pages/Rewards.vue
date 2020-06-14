@@ -1,25 +1,27 @@
 <template>
   <div class="container">
-    <div class="prize">
-      <span class="label">Prêmio da semana: </span>
-      <br>
-      <span class="title">{{ rankings.prize }}</span>
-    </div>
+    <q-img
+        class="thumbnail"
+        :src="rankings.prizeThumbnail"
+        spinner-color="red"
+        :ratio="16/9"
+      />
 
     <hr />
 
-    <span>
-      Podium
+    <span class="title">
+      Colocações da semana
     </span>
+
+    <hr />
 
     <div class="podium">
       <div v-for="users in rankings.podium" v-bind:key="users.position">
         <div v-bind:class="[users.isUser ? 'user-winner' : 'user-podium']">
-          <q-field class="user-position" outlined stack-label>
-            <template v-slot:control>
-              <div class="self-center full-width no-outline">{{ users.position }}° lugar</div>
-            </template>
-          </q-field>
+          <q-avatar class="user-position" rounded size="48px">
+          <img :src="users.profilePicture" />
+          <q-badge floating color="red">{{ users.position }}</q-badge>
+        </q-avatar>
 
           <q-field class="user-name" outlined stack-label>
             <template v-slot:control>
@@ -38,16 +40,15 @@
 
     <hr />
 
-    <span>
+    <span class="label">
       Minha colocação:
     </span>
 
     <div class="my-score">
-      <q-field class="user-position" outlined stack-label>
-        <template v-slot:control>
-          <div class="self-center full-width no-outline">{{ rankings.position }}° lugar</div>
-        </template>
-      </q-field>
+      <q-avatar class="user-position" rounded size="48px">
+        <img :src="user.profilePicture" />
+        <q-badge floating color="red">{{ rankings.position }}</q-badge>
+      </q-avatar>
 
       <q-field class="user-name" outlined stack-label>
         <template v-slot:control>
@@ -68,15 +69,16 @@
 export default {
   name: 'PageRewards',
   beforeCreate () {
-    let { isLogged } = this.$store.state.application;
-    if(!isLogged) {
+    const { isLogged } = this.$store.state.application
+    if (!isLogged) {
       this.$router.push({ name: 'BeginSession' })
     }
   },
   data () {
-    let { rankings } = this.$store.state.application;
+    const { rankings, user } = this.$store.state.application
     return {
-      rankings
+      rankings,
+      user
     }
   }
 }
@@ -84,20 +86,31 @@ export default {
 
 <style scoped>
   hr {
-    margin: 4px;
+    margin: 12px 4px;
   }
 
   .container {
     display: flex;
     flex-direction: column;
-    margin: 8px;
+    margin: 24px 8px 8px 8px;
   }
 
-  .prize > .label {
+  .thumbnail {
+    height: 100%;
+    width: calc(100vw - 16px);
+    margin: 0 24px 0 0;
+  }
+
+  .container > .title {
+    font-size: 20px;
+    align-self: center;
+  }
+
+  .label {
     color: gray;
   }
 
-  .prize > .title {
+  .prize > .prize-title {
     font-size: 25px;
   }
 
@@ -114,8 +127,9 @@ export default {
   }
 
   .user-position {
-    flex: 2;
-    padding: 0 8px 0 0;
+    flex: 1;
+    margin: 0 8px 0 0;
+    align-self: center;
   }
 
   .user-name {
