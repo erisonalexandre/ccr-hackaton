@@ -72,35 +72,40 @@ export default function () {
     ],
     rankings: {
       prize: "Corte de cabelo",
-      points: 700,
+      points: 60,
       podium: [
         {
           name: "Tiago",
+          position: 1,
           points: 820,
           isUser: false
         },
         {
           name: "Manuela",
+          position: 2,
           points: 770,
           isUser: false
         },
         {
           name: "Robson",
+          position: 3,
           points: 710,
           isUser: false
         },
         {
           name: "João",
+          position: 4,
           points: 700,
-          isUser: true
+          isUser: false
         },
         {
           name: "Iago",
+          position: 5,
           points: 690,
           isUser: false
         }
       ],
-      position: 4
+      position: 72
     }
   }
 }
