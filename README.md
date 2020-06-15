@@ -45,6 +45,7 @@ In this step we need to install all depedencies of this project.
 
 ```bash
 npm install
+npm install -g @quasar/cli
 ```
 
 ### Start the app in development mode 👷
