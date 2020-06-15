@@ -23,7 +23,7 @@
           <q-badge floating color="red">{{ users.position }}</q-badge>
         </q-avatar>
 
-          <q-field class="user-name" outlined stack-label>
+          <q-field class="user-name" borderless stack-label>
             <template v-slot:control>
               <div class="self-center full-width no-outline">{{ users.name }}</div>
             </template>
@@ -50,7 +50,7 @@
         <q-badge floating color="red">{{ rankings.position }}</q-badge>
       </q-avatar>
 
-      <q-field class="user-name" outlined stack-label>
+      <q-field class="user-name" borderless stack-label>
         <template v-slot:control>
           <div class="self-center full-width no-outline">Eu</div>
         </template>
