@@ -29,7 +29,7 @@
   <div class="body">
     <div>
       <div style="display: flex;">
-        <img src="/statics/svg/road.svg" style="width: 25px" class="q-mr-md q-ml-md" alt="">
+        <q-img src="/statics/svg/road.svg" style="width: 25px" class="q-mr-md q-ml-md" alt="" />
         <p style="margin: 0; font-size: 18px;"><b>Rotas</b></p>
       </div>
       <hr>

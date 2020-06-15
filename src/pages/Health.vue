@@ -5,7 +5,7 @@
         <q-card-section>
           <h5 class="text-center">Desafio do dia</h5>
           <div class="row items-center" style="margin-bottom: 20px">
-            <img class="col-2" src="/statics/svg/water-bottle.svg" alt="">
+            <q-img class="col-2" src="/statics/svg/water-bottle.svg" alt="" />
             <span class="col-9 q-ml-sm" style="font-size: 18px">Beba 10 copos de água e Ganhe 20 pontos!</span>
           </div>
         </q-card-section>
@@ -22,7 +22,7 @@
     <div class="listagem">
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/camping.svg" alt="">
+          <img src="../statics/svg/camping.svg" alt="" />
           <span>Sono</span>
         </div>
         <div class="col-8">
@@ -31,7 +31,7 @@
       </div>
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/sofa.svg" alt="">
+          <img src="../statics/svg/sofa.svg" alt="" />
           <span>Descanço</span>
         </div>
         <div class="col-8">
@@ -40,7 +40,7 @@
       </div>
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/haltere.svg" alt="">
+          <img src="../statics/svg/haltere.svg" alt="" />
           <span>Exercícios</span>
         </div>
         <div class="col-8">
@@ -49,7 +49,7 @@
       </div>
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/water-bottle.svg" alt="">
+          <img src="../statics/svg/water-bottle.svg" alt="" />
           <span>Água</span>
         </div>
         <div class="col-8">
@@ -58,7 +58,7 @@
       </div>
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/balanca.svg" alt="">
+          <img src="../statics/svg/balanca.svg" alt="" />
           <span>Peso</span>
         </div>
         <div class="col-8">
@@ -67,7 +67,7 @@
       </div>
       <div class="item row">
         <div class="col-4">
-          <img src="/statics/svg/painel-de-controle.svg" alt="">
+          <img src="../statics/svg/painel-de-controle.svg" alt="" />
           <span>Dados Importantes</span>
         </div>
         <div class="col-8">
